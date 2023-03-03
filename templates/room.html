@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %} Room {% endblock %}
+{% load static tailwind_tags %}
+{% block content %}
+<h1>{{ room.FormName }}</h1>
+{% for question in questions %}
+  <h2>{{ question.question }}</h2>
+  {% for option in question.options %}
+    <input type="radio" name="{{ question.id }}" value="{{ option.id }}">
+    <label>{{ option.option }}</label><br>
+  {% endfor %}
+{% endfor %}
+
+{% endblock%}
